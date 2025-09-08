@@ -126,7 +126,7 @@ app.get('/api/quiz/:difficulty', async (req, res) => {
   
   const ability = poke.abilities[Math.floor(Math.random() * poke.abilities.length)].ability.name;
   const bst = poke.stats.reduce((acc, s) => acc + s.base_stat, 0);
-  const location = await getLocation(poke.name);
+  //const location = await getLocation(poke.name);
   const pokedex = speciesRes.data.pokedex_numbers.find(p => p.pokedex.name === 'national')?.entry_number || 'N/A';
   const stage = await getEvolutionStage(poke.species.url);
 
@@ -139,6 +139,7 @@ app.get('/api/quiz/:difficulty', async (req, res) => {
 //     genus = genusEntry.genus;
 //   }
 // }
+
 
   let clues = [];
   if (difficulty === 'hard') {
